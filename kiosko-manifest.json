@@ -10,13 +10,13 @@
     "zh-Hans": "灾害预警",
     "ja": "災害情報"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": {
     "en": "Official warnings published by NWS, tsunami.gov, CWA, AEMET, Meteoalarm and GDACS, on your panels. Informational: they may arrive minutes late; not a substitute for official alerts.",
     "es": "Avisos oficiales publicados por NWS, tsunami.gov, la CWA, AEMET, Meteoalarm y GDACS, en tus paneles. Informativo: pueden llegar minutos después; no sustituye a los avisos oficiales.",
     "de": "Amtliche Warnungen von NWS, tsunami.gov, CWA, AEMET, Meteoalarm und GDACS auf deinen Panels. Zur Information: Sie können Minuten später ankommen; kein Ersatz für amtliche Warnungen.",
     "zh-Hant": "在你的面板上顯示 NWS、tsunami.gov、中央氣象署、AEMET、Meteoalarm 與 GDACS 發布的官方警特報。僅供參考：可能晚幾分鐘才到，不能取代官方警報。",
-    "zh-Hans": "在你的面板上显示 NWS、tsunami.gov、台湾气象署、AEMET、Meteoalarm 与 GDACS 发布的官方预警。仅供参考：可能晚几分钟才到，不能替代官方预警。",
+    "zh-Hans": "在你的副屏上显示 NWS、tsunami.gov、台湾地区气象部门、AEMET、Meteoalarm 与 GDACS 发布的官方预警。仅供参考：可能晚几分钟才到，不能替代官方预警。",
     "ja": "NWS、tsunami.gov、CWA、AEMET、Meteoalarm、GDACS が発表した公式の警報をパネルに表示します。参考情報：数分遅れることがあり、公式の警報の代わりにはなりません。"
   },
   "author": "Loksly",
@@ -270,7 +270,7 @@
         "es": "Avisos oficiales publicados por NWS, tsunami.gov, la CWA (vía NCDR), AEMET, Meteoalarm y GDACS, filtrados para tu sitio. Informativo: pueden llegar minutos después y no sustituyen a los avisos oficiales (ES-Alert, el móvil, radio y TV).",
         "de": "Amtliche Warnungen von NWS, tsunami.gov, CWA (über NCDR), AEMET, Meteoalarm und GDACS, gefiltert für deinen Ort. Zur Information: Sie können Minuten später ankommen und ersetzen keine amtlichen Warnungen (Handy, Radio, Fernsehen).",
         "zh-Hant": "NWS、tsunami.gov、中央氣象署（經民生示警）、AEMET、Meteoalarm 與 GDACS 發布的官方警特報，依你的地點篩選。僅供參考：可能晚幾分鐘才到，不能取代官方警報（手機、廣播與電視）。",
-        "zh-Hans": "NWS、tsunami.gov、台湾气象署（经 NCDR）、AEMET、Meteoalarm 与 GDACS 发布的官方预警，按你的地点筛选。仅供参考：可能晚几分钟才到，不能替代官方预警（手机、广播与电视）。",
+        "zh-Hans": "NWS、tsunami.gov、台湾地区气象部门（经 NCDR）、AEMET、Meteoalarm 与 GDACS 发布的官方预警，按你的地点筛选。仅供参考：可能晚几分钟才到，不能替代官方预警（手机、广播与电视）。",
         "ja": "NWS、tsunami.gov、CWA（NCDR経由）、AEMET、Meteoalarm、GDACS が発表した公式の警報を、あなたの場所で絞り込みます。参考情報：数分遅れることがあり、公式の警報（携帯電話・ラジオ・テレビ）の代わりにはなりません。"
       },
       "polled": false,
@@ -317,7 +317,7 @@
                 "es": "Vacío: las de tu sitio (EE. UU.: NWS y tsunami.gov; Taiwán: NCDR; España: AEMET; resto de Europa: Meteoalarm; todo el mundo: GDACS). Nombres o patrones separados por comas; «!gdacs» quita una. «test» hace un simulacro una vez.",
                 "de": "Leer: die für deinen Ort (USA: NWS und tsunami.gov; Taiwan: NCDR; Spanien: AEMET; übriges Europa: Meteoalarm; überall: GDACS). Namen oder Muster, durch Kommas getrennt; „!gdacs“ lässt einen weg. „test“ startet einmal eine Probe.",
                 "zh-Hant": "留空：依你的地點選擇（美國：NWS 與 tsunami.gov；臺灣：民生示警；西班牙：AEMET；歐洲其他地區：Meteoalarm；全球：GDACS）。名稱或模式以逗號分隔；「!gdacs」可排除一個。「test」執行一次演練。",
-                "zh-Hans": "留空：按你的地点选择（美国：NWS 与 tsunami.gov；台湾：民生示警；西班牙：AEMET；欧洲其他地区：Meteoalarm；全球：GDACS）。名称或模式用逗号分隔；“!gdacs”可排除一个。“test”执行一次演练。",
+                "zh-Hans": "留空：按你的地点选择（美国：NWS 与 tsunami.gov；台湾地区：民生示警；西班牙：AEMET；欧洲其他地区：Meteoalarm；全球：GDACS）。名称或模式用逗号分隔；“!gdacs”可排除一个。“test”执行一次演练。",
                 "ja": "空欄：場所に合わせて選びます（米国：NWS と tsunami.gov、台湾：NCDR、スペイン：AEMET、その他の欧州：Meteoalarm、全世界：GDACS）。名前やパターンをカンマ区切りで。「!gdacs」で除外。「test」で訓練を1回。"
               },
               "widget": "filter",
@@ -482,7 +482,7 @@
                 "es": "Para avisos que llegan con un código de zona y sin forma (Meteoalarm, zonas de tsunami de EE. UU.): códigos o nombres como los escriben los feeds («ES239», «CAZ043», «桃園市*»). Un aviso con forma se sitúa por ella.",
                 "de": "Für Warnungen mit Gebietscode und ohne Umriss (Meteoalarm, US-Tsunamizonen): Codes oder Namen wie in den Feeds („DE…“, „CAZ043“, „桃園市*“). Eine Warnung mit Umriss wird danach verortet.",
                 "zh-Hant": "適用於只有地區代碼、沒有範圍的警報（Meteoalarm、美國海嘯區）：依來源寫法填代碼或名稱（「CAZ043」、「桃園市*」）。有範圍的警報依範圍判斷。",
-                "zh-Hans": "适用于只有地区代码、没有范围的预警（Meteoalarm、美国海啸区）：按来源写法填代码或名称（“CAZ043”、“桃園市*”）。有范围的预警按范围判断。",
+                "zh-Hans": "适用于只有地区代码、没有范围的预警（Meteoalarm、美国海啸区）：按来源写法填代码或名称（“CAZ043”、“浦东新区*”）。有范围的预警按范围判断。",
                 "ja": "ゾーンコードだけで形のない警報（Meteoalarm、米国の津波ゾーン）用：フィードの表記どおりのコードや名前（「CAZ043」「桃園市*」）。形のある警報はその形で判定します。"
               },
               "widget": "filter",
@@ -595,7 +595,7 @@
                 "es": "Un informe cuenta lo que ya ha pasado; crítico despertaría el panel en las horas de silencio.",
                 "de": "Ein Bericht sagt, was schon geschehen ist; kritisch würde das Panel in den Ruhezeiten wecken.",
                 "zh-Hant": "報告說的是已經發生的事；緊急等級會在安靜時段喚醒面板。",
-                "zh-Hans": "报告说的是已经发生的事；紧急级别会在安静时段唤醒面板。",
+                "zh-Hans": "报告说的是已经发生的事；紧急级别会在安静时段唤醒副屏。",
                 "ja": "情報はすでに起きたことです。緊急にすると静かな時間帯にもパネルが点きます。"
               },
               "labels": {
@@ -649,8 +649,8 @@
                 "en": "Critical makes a red warning (AEMET, Meteoalarm, CWA) or an imminent Severe one cross quiet hours.",
                 "es": "Crítico hace que un aviso rojo (AEMET, Meteoalarm, CWA) o uno grave inminente cruce las horas de silencio.",
                 "de": "Kritisch lässt eine rote Warnung (AEMET, Meteoalarm, CWA) oder eine unmittelbare schwere die Ruhezeiten durchbrechen.",
-                "zh-Hant": "選緊急時，紅色警報（AEMET、Meteoalarm、氣象署）或即將發生的嚴重警報會穿過安靜時段。",
-                "zh-Hans": "选紧急时，红色预警（AEMET、Meteoalarm、气象署）或即将发生的严重预警会穿过安静时段。",
+                "zh-Hant": "選緊急時，紅色警報（AEMET、Meteoalarm、氣象署）或即將發生的嚴重警報在安靜時段也會顯示。",
+                "zh-Hans": "选紧急时，红色预警（AEMET、Meteoalarm、民生示警）或即将发生的严重预警在安静时段也会显示。",
                 "ja": "緊急にすると、赤色警報（AEMET、Meteoalarm、CWA）や差し迫った重大警報が静かな時間帯にも出ます。"
               },
               "labels": {
@@ -728,8 +728,8 @@
                 "en": "A feed that hasn't answered for this long is shown as down in the tile (never full-screen).",
                 "es": "Un feed que no responde en este tiempo sale como caído en la tesela (nunca a pantalla completa).",
                 "de": "Ein Feed, der so lange nicht antwortet, erscheint in der Kachel als ausgefallen (nie bildschirmfüllend).",
-                "zh-Hant": "超過這段時間沒有回應的來源，會在圖塊中標示為中斷（不會全螢幕）。",
-                "zh-Hans": "超过这段时间没有响应的源，会在图块中标示为中断（不会全屏）。",
+                "zh-Hant": "超過這段時間沒有回應的來源，會在方格中標示為中斷（不會全螢幕）。",
+                "zh-Hans": "超过这段时间没有响应的源，会在格子中标示为中断（不会全屏）。",
                 "ja": "この時間応答のないフィードはタイルで停止中と表示します（全画面にはしません）。"
               },
               "unit": "ms"

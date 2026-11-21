@@ -31,7 +31,7 @@ export const PRESETS: Preset[] = [
   {
     id: 'nws',
     source: 'NWS',
-    name: { en: 'NWS: US weather and tsunami warnings for your point', es: 'NWS: avisos de tiempo y tsunami de EE. UU. para tu punto', de: 'NWS: Wetter- und Tsunamiwarnungen der USA für deinen Ort', 'zh-Hant': 'NWS：美國天氣與海嘯警報（依你的位置）', 'zh-Hans': 'NWS：美国天气与海啸警报（按你的位置）', ja: 'NWS：米国の気象・津波警報（現在地）' },
+    name: { en: 'NWS: US weather and tsunami warnings for your point', es: 'NWS: avisos de tiempo y tsunami de EE. UU. para tu punto', de: 'NWS: Wetter- und Tsunamiwarnungen der USA für deinen Ort', 'zh-Hant': 'NWS：美國天氣與海嘯警報（依你的位置）', 'zh-Hans': 'NWS：美国天气与海啸预警（按你的位置）', ja: 'NWS：米国の気象・津波警報（現在地）' },
     country: 'US',
     url: (pt) => (pt && countryOf(pt) === 'US' ? `https://api.weather.gov/alerts/active?point=${pt[0].toFixed(4)},${pt[1].toFixed(4)}` : null),
     intervalMs: MIN,
@@ -64,7 +64,7 @@ export const PRESETS: Preset[] = [
   {
     id: 'ncdr',
     source: { en: 'CWA via NCDR', es: 'CWA vía NCDR', de: 'CWA über NCDR', 'zh-Hant': '民生示警', 'zh-Hans': '民生示警', ja: 'CWA（NCDR経由）' },
-    name: { en: 'NCDR: Taiwan warnings (CWA and other agencies)', es: 'NCDR: avisos de Taiwán (CWA y otras agencias)', de: 'NCDR: Warnungen für Taiwan (CWA und andere Behörden)', 'zh-Hant': '民生示警（NCDR）：中央氣象署等機關的警特報', 'zh-Hans': '民生示警（NCDR）：台湾气象署等机关的警报', ja: 'NCDR：台湾の警報（CWAほか）' },
+    name: { en: 'NCDR: Taiwan warnings (CWA and other agencies)', es: 'NCDR: avisos de Taiwán (CWA y otras agencias)', de: 'NCDR: Warnungen für Taiwan (CWA und andere Behörden)', 'zh-Hant': '民生示警（NCDR）：中央氣象署等機關的警特報', 'zh-Hans': '民生示警（NCDR）：台湾地区气象等部门发布的预警', ja: 'NCDR：台湾の警報（CWAほか）' },
     country: 'TW',
     url: () => 'https://alerts.ncdr.nat.gov.tw/RssAtomFeeds.ashx',
     intervalMs: MIN,
@@ -76,7 +76,7 @@ export const PRESETS: Preset[] = [
   {
     id: 'aemet',
     source: 'AEMET',
-    name: { en: 'AEMET: Spain weather warnings (Meteoalerta)', es: 'AEMET: avisos meteorológicos de España (Meteoalerta)', de: 'AEMET: Wetterwarnungen für Spanien (Meteoalerta)', 'zh-Hant': 'AEMET：西班牙天氣警報', 'zh-Hans': 'AEMET：西班牙天气警报', ja: 'AEMET：スペインの気象警報' },
+    name: { en: 'AEMET: Spain weather warnings (Meteoalerta)', es: 'AEMET: avisos meteorológicos de España (Meteoalerta)', de: 'AEMET: Wetterwarnungen für Spanien (Meteoalerta)', 'zh-Hant': 'AEMET：西班牙天氣警報', 'zh-Hans': 'AEMET：西班牙天气预警', ja: 'AEMET：スペインの気象警報' },
     country: 'ES',
     url: () => 'https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/rss/CAP_AFAE_wah_RSS.xml',
     intervalMs: 10 * MIN,
@@ -88,7 +88,7 @@ export const PRESETS: Preset[] = [
   ...COUNTRIES.filter((c) => c.meteoalarm).map<Preset>((c) => ({
     id: `meteoalarm-${c.meteoalarm}`,
     source: 'Meteoalarm',
-    name: { en: `Meteoalarm: ${c.code} weather warnings`, es: `Meteoalarm: avisos meteorológicos (${c.code})`, de: `Meteoalarm: Wetterwarnungen (${c.code})`, 'zh-Hant': `Meteoalarm：天氣警報（${c.code}）`, 'zh-Hans': `Meteoalarm：天气警报（${c.code}）`, ja: `Meteoalarm：気象警報（${c.code}）` },
+    name: { en: `Meteoalarm: ${c.code} weather warnings`, es: `Meteoalarm: avisos meteorológicos (${c.code})`, de: `Meteoalarm: Wetterwarnungen (${c.code})`, 'zh-Hant': `Meteoalarm：天氣警報（${c.code}）`, 'zh-Hans': `Meteoalarm：天气预警（${c.code}）`, ja: `Meteoalarm：気象警報（${c.code}）` },
     country: c.code,
     url: () => `https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-${c.meteoalarm}`,
     intervalMs: 10 * MIN,

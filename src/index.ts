@@ -20,7 +20,7 @@ export default definePlugin({
     es: 'Avisos oficiales publicados por NWS, tsunami.gov, la CWA, AEMET, Meteoalarm y GDACS, en tus paneles. Informativo: pueden llegar minutos después; no sustituye a los avisos oficiales.',
     de: 'Amtliche Warnungen von NWS, tsunami.gov, CWA, AEMET, Meteoalarm und GDACS auf deinen Panels. Zur Information: Sie können Minuten später ankommen; kein Ersatz für amtliche Warnungen.',
     'zh-Hant': '在你的面板上顯示 NWS、tsunami.gov、中央氣象署、AEMET、Meteoalarm 與 GDACS 發布的官方警特報。僅供參考：可能晚幾分鐘才到，不能取代官方警報。',
-    'zh-Hans': '在你的面板上显示 NWS、tsunami.gov、台湾气象署、AEMET、Meteoalarm 与 GDACS 发布的官方预警。仅供参考：可能晚几分钟才到，不能替代官方预警。',
+    'zh-Hans': '在你的副屏上显示 NWS、tsunami.gov、台湾地区气象部门、AEMET、Meteoalarm 与 GDACS 发布的官方预警。仅供参考：可能晚几分钟才到，不能替代官方预警。',
     ja: 'NWS、tsunami.gov、CWA、AEMET、Meteoalarm、GDACS が発表した公式の警報をパネルに表示します。参考情報：数分遅れることがあり、公式の警報の代わりにはなりません。',
   },
   author: 'Loksly',

@@ -23,6 +23,15 @@ test('the demo: an orange warning, a report from 12 minutes ago, a feed that is 
   assert.equal(widgetState(latest, 'urgent', { now: NOW }), true, 'a feed down keeps the tile');
 });
 
+test('the demo in Chinese: Taiwan in Traditional (zh-Hant, zh-TW, zh-HK), the mainland in Simplified (zh-Hans, zh-CN)', () => {
+  for (const locale of ['zh-Hant', 'zh-TW', 'zh-HK']) assert.equal(demoData(NOW, locale).place, '臺北市', locale);
+  for (const locale of ['zh-Hans', 'zh-CN', 'zh']) {
+    const d = demoData(NOW, locale);
+    assert.equal(d.place, '上海市', locale);
+    assert.equal(d.items[0]!.title, '暴雨橙色预警', locale);
+  }
+});
+
 test('no warnings: says for where and from which data, never a bare "all calm"', () => {
   const r = paint(base());
   assert.deepEqual(r.texts, ['Datos: AEMET · hace 1 min', 'Informativo · no sustituye a los avisos oficiales', 'Sin avisos para Madrid']);
