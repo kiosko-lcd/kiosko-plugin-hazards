@@ -1,0 +1,40 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.example-tsunami.001.1",
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-124.08, 46.27], [-123.85, 46.27], [-123.85, 45.80], [-124.02, 45.80], [-124.08, 46.27]]]
+      },
+      "properties": {
+        "id": "urn:oid:2.49.0.1.840.0.example-tsunami.001.1",
+        "areaDesc": "North Oregon Coast",
+        "geocode": { "SAME": ["041007"], "UGC": ["ORZ001"] },
+        "references": [],
+        "sent": "2026-11-21T03:10:00-08:00",
+        "effective": "2026-11-21T03:10:00-08:00",
+        "onset": "2026-11-21T03:10:00-08:00",
+        "expires": "2026-11-21T07:10:00-08:00",
+        "ends": null,
+        "status": "Actual",
+        "messageType": "Alert",
+        "category": "Geo",
+        "severity": "Extreme",
+        "certainty": "Observed",
+        "urgency": "Immediate",
+        "event": "Tsunami Warning",
+        "sender": "w-nws.webmaster@noaa.gov",
+        "senderName": "NWS National Tsunami Warning Center",
+        "headline": "Tsunami Warning issued November 21 at 3:10AM PST by NWS National Tsunami Warning Center",
+        "description": "* WHAT...Tsunami waves and strong currents are expected.",
+        "instruction": "Move off the beach and out of harbors and marinas. Go to high ground or inland.",
+        "response": "Evacuate",
+        "scope": "Public",
+        "language": "en-US",
+        "eventCode": { "SAME": ["TSW"], "NationalWeatherService": ["TSW"] }
+      }
+    }
+  ]
+}

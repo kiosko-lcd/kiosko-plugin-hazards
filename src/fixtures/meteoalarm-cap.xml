@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>2.49.0.0.724.0.ES.261121104009.770301VIRM221157609</identifier>
+  <sender>http://www.aemet.es</sender>
+  <sent>2026-11-21T10:40:09+00:00</sent>
+  <status>Actual</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <info>
+    <language>es-ES</language>
+    <category>Met</category>
+    <event>Aviso de vientos de nivel amarillo</event>
+    <responseType>Monitor</responseType>
+    <urgency>Future</urgency>
+    <severity>Moderate</severity>
+    <certainty>Likely</certainty>
+    <effective>2026-11-21T11:36:33+01:00</effective>
+    <onset>2026-11-22T03:00:00+01:00</onset>
+    <expires>2026-11-22T11:59:59+01:00</expires>
+    <senderName>AEMET. Agencia Estatal de Meteorología</senderName>
+    <headline>Aviso de vientos de nivel amarillo. Litoral norte de Alicante</headline>
+    <description>Rachas máximas: 70 km/h. Viento de componente oeste.</description>
+    <instruction>Esté atento. Manténgase informado de la predicción meteorológica más actualizada. Se pueden producir daños moderados a personas y bienes, especialmente a aquellos vulnerables o en zonas expuestas al fenómeno.</instruction>
+    <web>https://www.aemet.es/es/eltiempo/prediccion/avisos</web>
+    <contact>AEMET</contact>
+    <parameter>
+      <valueName>awareness_level</valueName>
+      <value>2; yellow; Moderate</value>
+    </parameter>
+    <parameter>
+      <valueName>awareness_type</valueName>
+      <value>1; Wind</value>
+    </parameter>
+    <area>
+      <areaDesc>Litoral norte de Alicante</areaDesc>
+      <geocode>
+        <valueName>EMMA_ID</valueName>
+        <value>ES239</value>
+      </geocode>
+    </area>
+  </info>
+  <info>
+    <language>en-GB</language>
+    <category>Met</category>
+    <event>Moderate wind warning</event>
+    <responseType>Monitor</responseType>
+    <urgency>Future</urgency>
+    <severity>Moderate</severity>
+    <certainty>Likely</certainty>
+    <effective>2026-11-21T11:36:33+01:00</effective>
+    <onset>2026-11-22T03:00:00+01:00</onset>
+    <expires>2026-11-22T11:59:59+01:00</expires>
+    <senderName>AEMET. State Meteorological Agency</senderName>
+    <headline>Moderate wind warning. Litoral norte de Alicante</headline>
+    <description>Maximum gust of wind: 70 km/h. Viento de componente oeste.</description>
+    <instruction>Be aware, keep up to date with the latest weather forecast. Moderate damages to people and properties may occur, especially to those vulnerable or in exposed areas.</instruction>
+    <web>https://www.aemet.es/en/eltiempo/prediccion/avisos</web>
+    <contact>AEMET</contact>
+    <parameter>
+      <valueName>awareness_level</valueName>
+      <value>2; yellow; Moderate</value>
+    </parameter>
+    <parameter>
+      <valueName>awareness_type</valueName>
+      <value>1; Wind</value>
+    </parameter>
+    <area>
+      <areaDesc>Litoral norte de Alicante</areaDesc>
+      <geocode>
+        <valueName>EMMA_ID</valueName>
+        <value>ES239</value>
+      </geocode>
+    </area>
+  </info>
+</alert>

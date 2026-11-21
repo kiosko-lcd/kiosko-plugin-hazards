@@ -1,0 +1,266 @@
+{
+  "@context": [
+    "https://geojson.org/geojson-ld/geojson-context.jsonld",
+    {
+      "@version": "1.1",
+      "wx": "https://api.weather.gov/ontology#",
+      "@vocab": "https://api.weather.gov/ontology#"
+    }
+  ],
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.24a0d9cf0e23992e2ca4e8ee6fe706ca07b291d7.002.1",
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.24a0d9cf0e23992e2ca4e8ee6fe706ca07b291d7.002.1",
+        "@type": "wx:Alert",
+        "id": "urn:oid:2.49.0.1.840.0.24a0d9cf0e23992e2ca4e8ee6fe706ca07b291d7.002.1",
+        "areaDesc": "Eastern Alaska Range North of Trims Camp",
+        "geocode": {
+          "SAME": [
+            "002240"
+          ],
+          "UGC": [
+            "AKZ849"
+          ]
+        },
+        "affectedZones": [
+          "https://api.weather.gov/zones/forecast/AKZ849"
+        ],
+        "references": [
+          {
+            "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.bf5374efd4b4a55f3df68323d31f6e128aae1cb3.001.1",
+            "identifier": "urn:oid:2.49.0.1.840.0.bf5374efd4b4a55f3df68323d31f6e128aae1cb3.001.1",
+            "sender": "w-nws.webmaster@noaa.gov",
+            "sent": "2026-11-20T12:11:00-09:00"
+          },
+          {
+            "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ba1462a307de1185e06b1c2e5138e2a29784f0ab.001.1",
+            "identifier": "urn:oid:2.49.0.1.840.0.ba1462a307de1185e06b1c2e5138e2a29784f0ab.001.1",
+            "sender": "w-nws.webmaster@noaa.gov",
+            "sent": "2026-11-19T23:15:00-09:00"
+          }
+        ],
+        "sent": "2026-11-20T15:22:00-09:00",
+        "effective": "2026-11-20T15:22:00-09:00",
+        "onset": "2026-11-20T15:22:00-09:00",
+        "expires": "2026-11-21T07:00:00-09:00",
+        "ends": "2026-11-22T03:00:00-09:00",
+        "status": "Actual",
+        "messageType": "Update",
+        "category": "Met",
+        "severity": "Moderate",
+        "certainty": "Likely",
+        "urgency": "Expected",
+        "event": "Wind Advisory",
+        "sender": "w-nws.webmaster@noaa.gov",
+        "senderName": "NWS Fairbanks AK",
+        "headline": "Wind Advisory issued November 20 at 3:22PM AKST until November 22 at 3:00AM AKST by NWS Fairbanks AK",
+        "description": "* WHAT...South winds 20 to 30 mph with gusts up to 60 mph expected.\n\n* WHERE...Eastern Alaska Range North of Trims Camp.\n\n* WHEN...Until 3 AM AKST Sunday.\n\n* IMPACTS...Gusty winds will blow around unsecured objects. Tree\nlimbs could be blown down and a few power outages may result.\n\n* ADDITIONAL DETAILS...The peak of the winds for this event is\nexpected around noon Saturday.",
+        "instruction": "Winds this strong can make driving difficult, especially for high\nprofile vehicles. Use extra caution.",
+        "response": "Execute",
+        "note": null,
+        "parameters": {
+          "AWIPSidentifier": [
+            "NPWAFG"
+          ],
+          "WMOidentifier": [
+            "WWAK73 PAFG 210022"
+          ],
+          "NWSheadline": [
+            "WIND ADVISORY REMAINS IN EFFECT UNTIL 3 AM AKST SUNDAY"
+          ],
+          "BLOCKCHANNEL": [
+            "EAS",
+            "NWEM",
+            "CMAS"
+          ],
+          "VTEC": [
+            "/O.CON.PAFG.WI.Y.0047.000000T0000Z-261122T1200Z/"
+          ],
+          "eventEndingTime": [
+            "2026-11-22T03:00:00-09:00"
+          ]
+        },
+        "scope": "Public",
+        "code": "IPAWSv1.0",
+        "language": "en-US",
+        "web": "http://www.weather.gov",
+        "eventCode": {
+          "SAME": [
+            "NWS"
+          ],
+          "NationalWeatherService": [
+            "WIY"
+          ]
+        }
+      }
+    },
+    {
+      "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.24a0d9cf0e23992e2ca4e8ee6fe706ca07b291d7.001.1",
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.24a0d9cf0e23992e2ca4e8ee6fe706ca07b291d7.001.1",
+        "@type": "wx:Alert",
+        "id": "urn:oid:2.49.0.1.840.0.24a0d9cf0e23992e2ca4e8ee6fe706ca07b291d7.001.1",
+        "areaDesc": "Northern Denali Borough",
+        "geocode": {
+          "SAME": [
+            "002068"
+          ],
+          "UGC": [
+            "AKZ847"
+          ]
+        },
+        "affectedZones": [
+          "https://api.weather.gov/zones/forecast/AKZ847"
+        ],
+        "references": [],
+        "sent": "2026-11-20T15:22:00-09:00",
+        "effective": "2026-11-20T15:22:00-09:00",
+        "onset": "2026-11-20T15:22:00-09:00",
+        "expires": "2026-11-21T07:00:00-09:00",
+        "ends": "2026-11-22T03:00:00-09:00",
+        "status": "Actual",
+        "messageType": "Alert",
+        "category": "Met",
+        "severity": "Moderate",
+        "certainty": "Likely",
+        "urgency": "Expected",
+        "event": "Wind Advisory",
+        "sender": "w-nws.webmaster@noaa.gov",
+        "senderName": "NWS Fairbanks AK",
+        "headline": "Wind Advisory issued November 20 at 3:22PM AKST until November 22 at 3:00AM AKST by NWS Fairbanks AK",
+        "description": "* WHAT...South winds 30 to 40 mph with gusts up to 60 mph.\n\n* WHERE...Windy Pass.\n\n* WHEN...Until 3 AM AKST Sunday.\n\n* IMPACTS...Gusty winds will blow around unsecured objects. Tree\nlimbs could be blown down and a few power outages may result.",
+        "instruction": "Winds this strong can make driving difficult, especially for high\nprofile vehicles. Use extra caution.",
+        "response": "Execute",
+        "note": null,
+        "parameters": {
+          "AWIPSidentifier": [
+            "NPWAFG"
+          ],
+          "WMOidentifier": [
+            "WWAK73 PAFG 210022"
+          ],
+          "NWSheadline": [
+            "WIND ADVISORY IN EFFECT UNTIL 3 AM AKST SUNDAY"
+          ],
+          "BLOCKCHANNEL": [
+            "EAS",
+            "NWEM",
+            "CMAS"
+          ],
+          "VTEC": [
+            "/O.EXA.PAFG.WI.Y.0047.000000T0000Z-261122T1200Z/"
+          ],
+          "eventEndingTime": [
+            "2026-11-22T03:00:00-09:00"
+          ]
+        },
+        "scope": "Public",
+        "code": "IPAWSv1.0",
+        "language": "en-US",
+        "web": "http://www.weather.gov",
+        "eventCode": {
+          "SAME": [
+            "NWS"
+          ],
+          "NationalWeatherService": [
+            "WIY"
+          ]
+        }
+      }
+    },
+    {
+      "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.be689b51d5e3946189c11371cbd15c42367ad6c5.001.1",
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.be689b51d5e3946189c11371cbd15c42367ad6c5.001.1",
+        "@type": "wx:Alert",
+        "id": "urn:oid:2.49.0.1.840.0.be689b51d5e3946189c11371cbd15c42367ad6c5.001.1",
+        "areaDesc": "St Lawrence Island",
+        "geocode": {
+          "SAME": [
+            "002180"
+          ],
+          "UGC": [
+            "AKZ827"
+          ]
+        },
+        "affectedZones": [
+          "https://api.weather.gov/zones/forecast/AKZ827"
+        ],
+        "references": [
+          {
+            "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8ad10dee6c9dc52b10f67c25bddb8e8cd0094d48.001.1",
+            "identifier": "urn:oid:2.49.0.1.840.0.8ad10dee6c9dc52b10f67c25bddb8e8cd0094d48.001.1",
+            "sender": "w-nws.webmaster@noaa.gov",
+            "sent": "2026-11-20T12:40:00-09:00"
+          }
+        ],
+        "sent": "2026-11-20T12:55:00-09:00",
+        "effective": "2026-11-20T12:55:00-09:00",
+        "onset": "2026-11-22T18:00:00-09:00",
+        "expires": "2026-11-21T07:00:00-09:00",
+        "ends": "2026-11-23T09:00:00-09:00",
+        "status": "Actual",
+        "messageType": "Update",
+        "category": "Met",
+        "severity": "Severe",
+        "certainty": "Possible",
+        "urgency": "Future",
+        "event": "High Wind Watch",
+        "sender": "w-nws.webmaster@noaa.gov",
+        "senderName": "NWS Fairbanks AK",
+        "headline": "High Wind Watch issued November 20 at 12:55PM AKST until November 23 at 9:00AM AKST by NWS Fairbanks AK",
+        "description": "* WHAT...Southeast winds 25 to 45 mph with gusts up to 60 mph\npossible.\n\n* WHERE...St Lawrence Island.\n\n* WHEN...From Sunday evening through Monday morning.\n\n* IMPACTS...High winds may move loose debris, damage property and\ncause power outages. Travel could be difficult.",
+        "instruction": "Monitor the latest forecasts and warnings for updates.",
+        "response": "Prepare",
+        "note": null,
+        "parameters": {
+          "AWIPSidentifier": [
+            "NPWWCZ"
+          ],
+          "WMOidentifier": [
+            "WWAK72 PAFG 202155"
+          ],
+          "NWSheadline": [
+            "HIGH WIND WATCH NOW IN EFFECT FROM SUNDAY EVENING THROUGH MONDAY MORNING"
+          ],
+          "BLOCKCHANNEL": [
+            "EAS",
+            "NWEM",
+            "CMAS"
+          ],
+          "EAS-ORG": [
+            "WXR"
+          ],
+          "VTEC": [
+            "/O.EXT.PAFG.HW.A.0019.261123T0300Z-261123T1800Z/"
+          ],
+          "eventEndingTime": [
+            "2026-11-23T09:00:00-09:00"
+          ]
+        },
+        "scope": "Public",
+        "code": "IPAWSv1.0",
+        "language": "en-US",
+        "web": "http://www.weather.gov",
+        "eventCode": {
+          "SAME": [
+            "HWA"
+          ],
+          "NationalWeatherService": [
+            "HWA"
+          ]
+        }
+      }
+    }
+  ],
+  "title": "Current watches, warnings, and advisories for Alaska",
+  "updated": "2026-11-21T12:45:08+00:00"
+}

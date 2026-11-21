@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>AEMET - Avisos de fenómenos meteorológicos adversos - España</title>
+    <link>https://www.aemet.es/es/eltiempo/prediccion/avisos</link>
+    <description>Avisos de fenómenos meteorológicos adversos según el Plan Meteoalerta de la Agencia Estatal de Meteorología (AEMET) para España.</description>
+    <language>es</language>
+    <copyright>https://www.aemet.es/es/nota_legal</copyright>
+    <pubDate>Sat, 21 Nov 2026 10:36:33 +0000</pubDate>
+    <lastBuildDate>Sat, 21 Nov 2026 10:36:33 +0000</lastBuildDate>
+    <image>
+      <title>AEMET - Avisos de fenómenos meteorológicos adversos - España</title>
+      <link>https://www.aemet.es/es/eltiempo/prediccion/avisos</link>
+      <url>https://www.aemet.es/imagenes/gif/logo_AEMET_web.gif</url>
+    </image>
+    <item>
+      <title>Aviso. Nivel amarillo. Vientos. Litoral norte de Alicante</title>
+      <description>Aviso de rachas máximas de nivel amarillo de 03:00 22-11-2026 CET (UTC+1) a 11:59 22-11-2026 CET (UTC+1).</description>
+      <link>https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/cap/Z_CAP_C_LEMM_20261121103633_AFAZ770301VIRM2211.xml</link>
+      <guid isPermaLink="false">Z_CAP_C_LEMM_20261121103633_AFAZ770301VIRM2211.xml</guid>
+      <pubDate>Sat, 21 Nov 2026 10:36:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>Aviso. Nivel amarillo. Vientos. Interior de Alicante</title>
+      <description>Aviso de rachas máximas de nivel amarillo de 03:00 22-11-2026 CET (UTC+1) a 11:59 22-11-2026 CET (UTC+1).</description>
+      <link>https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/cap/Z_CAP_C_LEMM_20261121103633_AFAZ770302VIRM2211.xml</link>
+      <guid isPermaLink="false">Z_CAP_C_LEMM_20261121103633_AFAZ770302VIRM2211.xml</guid>
+      <pubDate>Sat, 21 Nov 2026 10:36:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>Aviso. Nivel naranja. Costeros. Litoral occidental asturiano</title>
+      <description>Aviso de costeros de nivel naranja de 00:00 22-11-2026 CET (UTC+1) a 05:59 22-11-2026 CET (UTC+1).</description>
+      <link>https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/cap/Z_CAP_C_LEMM_20261121102417_AFAZ633301COCO2205.xml</link>
+      <guid isPermaLink="false">Z_CAP_C_LEMM_20261121102417_AFAZ633301COCO2205.xml</guid>
+      <pubDate>Sat, 21 Nov 2026 10:24:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>Aviso. Nivel amarillo. Costeros. Litoral occidental asturiano</title>
+      <description>Aviso de costeros de nivel amarillo de 22:00 21-11-2026 CET (UTC+1) a 23:59 21-11-2026 CET (UTC+1).</description>
+      <link>https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/cap/Z_CAP_C_LEMM_20261121102417_AFAZ633301COCO2123.xml</link>
+      <guid isPermaLink="false">Z_CAP_C_LEMM_20261121102417_AFAZ633301COCO2123.xml</guid>
+      <pubDate>Sat, 21 Nov 2026 10:24:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>Aviso. Nivel amarillo. Costeros. Litoral occidental asturiano</title>
+      <description>Aviso de costeros de nivel amarillo de 06:00 22-11-2026 CET (UTC+1) a 17:59 22-11-2026 CET (UTC+1).</description>
+      <link>https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/cap/Z_CAP_C_LEMM_20261121102417_AFAZ633301COCO2217.xml</link>
+      <guid isPermaLink="false">Z_CAP_C_LEMM_20261121102417_AFAZ633301COCO2217.xml</guid>
+      <pubDate>Sat, 21 Nov 2026 10:24:17 +0000</pubDate>
+    </item>
+    <item>
+      <title>Aviso. Nivel amarillo. Lluvias. Oeste de A Coruña</title>
+      <description>Aviso de precipitación acumulada en una hora de nivel amarillo de 11:00 21-11-2026 CET (UTC+1) a 21:59 21-11-2026 CET (UTC+1).</description>
+      <link>https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/cap/Z_CAP_C_LEMM_20261120080138_AFAZ711502PRP12121.xml</link>
+      <guid isPermaLink="false">Z_CAP_C_LEMM_20261120080138_AFAZ711502PRP12121.xml</guid>
+      <pubDate>Fri, 20 Nov 2026 08:01:38 +0000</pubDate>
+    </item>
+    </channel>
+</rss>
