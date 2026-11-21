@@ -1,0 +1,821 @@
+{
+  "manifest": 1,
+  "id": "hazards",
+  "package": "kiosko-plugin-hazards",
+  "name": {
+    "en": "Hazard alerts",
+    "es": "Avisos y terremotos",
+    "de": "Warnungen und Erdbeben",
+    "zh-Hant": "災害示警",
+    "zh-Hans": "灾害预警",
+    "ja": "災害情報"
+  },
+  "version": "0.1.0",
+  "description": {
+    "en": "Official warnings published by NWS, tsunami.gov, CWA, AEMET, Meteoalarm and GDACS, on your panels. Informational: they may arrive minutes late; not a substitute for official alerts.",
+    "es": "Avisos oficiales publicados por NWS, tsunami.gov, la CWA, AEMET, Meteoalarm y GDACS, en tus paneles. Informativo: pueden llegar minutos después; no sustituye a los avisos oficiales.",
+    "de": "Amtliche Warnungen von NWS, tsunami.gov, CWA, AEMET, Meteoalarm und GDACS auf deinen Panels. Zur Information: Sie können Minuten später ankommen; kein Ersatz für amtliche Warnungen.",
+    "zh-Hant": "在你的面板上顯示 NWS、tsunami.gov、中央氣象署、AEMET、Meteoalarm 與 GDACS 發布的官方警特報。僅供參考：可能晚幾分鐘才到，不能取代官方警報。",
+    "zh-Hans": "在你的面板上显示 NWS、tsunami.gov、台湾气象署、AEMET、Meteoalarm 与 GDACS 发布的官方预警。仅供参考：可能晚几分钟才到，不能替代官方预警。",
+    "ja": "NWS、tsunami.gov、CWA、AEMET、Meteoalarm、GDACS が発表した公式の警報をパネルに表示します。参考情報：数分遅れることがあり、公式の警報の代わりにはなりません。"
+  },
+  "author": "Loksly",
+  "license": "MIT",
+  "homepage": "https://github.com/kiosko-lcd/kiosko-plugin-hazards#readme",
+  "repository": "https://github.com/kiosko-lcd/kiosko-plugin-hazards",
+  "icon": "siren",
+  "sdk": "^0.2.0",
+  "platforms": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "languages": [
+    "en",
+    "es",
+    "de",
+    "zh-Hant",
+    "zh-Hans",
+    "ja"
+  ],
+  "categories": [
+    "info"
+  ],
+  "tags": [
+    "cap",
+    "earthquake",
+    "tsunami",
+    "weather",
+    "warnings"
+  ],
+  "permissions": {
+    "network": [
+      "api.weather.gov",
+      "www.tsunami.gov",
+      "alerts.ncdr.nat.gov.tw",
+      "www.aemet.es",
+      "feeds.meteoalarm.org",
+      "www.gdacs.org",
+      "user"
+    ],
+    "files": [
+      "user"
+    ]
+  },
+  "riskyOptions": [
+    {
+      "path": "hazards/alerts: customFeeds",
+      "risk": [
+        "network",
+        "path"
+      ],
+      "secret": false
+    }
+  ],
+  "requires": [],
+  "optional": [],
+  "widgets": [
+    {
+      "type": "hazards/latest",
+      "name": {
+        "en": "Latest warnings",
+        "es": "Últimos avisos",
+        "de": "Neueste Warnungen",
+        "zh-Hant": "最新警特報",
+        "zh-Hans": "最新预警",
+        "ja": "最新の警報"
+      },
+      "description": {
+        "en": "Official warnings for your place and recent earthquake reports, with their source and how fresh each feed is. Informational: not a substitute for official alerts.",
+        "es": "Avisos oficiales para tu sitio e informes de terremotos recientes, con su fuente y lo recientes que son los datos de cada feed. Informativo: no sustituye a los avisos oficiales.",
+        "de": "Amtliche Warnungen für deinen Ort und aktuelle Erdbebenberichte, mit Quelle und Aktualität jedes Feeds. Zur Information: ersetzt keine amtlichen Warnungen.",
+        "zh-Hant": "你所在地點的官方警特報與近期地震報告，標示來源與各資料來源的更新時間。僅供參考：不能取代官方警報。",
+        "zh-Hans": "你所在地点的官方预警与近期地震报告，标示来源与各数据源的更新时间。仅供参考：不能替代官方预警。",
+        "ja": "あなたの場所の公式の警報と最近の地震情報を、発表元と各フィードの更新時刻とともに表示します。参考情報：公式の警報の代わりにはなりません。"
+      },
+      "icon": "siren",
+      "category": "info",
+      "tags": [
+        "cap",
+        "earthquake",
+        "tsunami",
+        "weather",
+        "warnings"
+      ],
+      "size": {
+        "min": {
+          "w": 320,
+          "h": 154
+        },
+        "preferred": {
+          "w": 640,
+          "h": 462
+        }
+      },
+      "chrome": "card",
+      "sources": [
+        "hazards/alerts"
+      ],
+      "options": {
+        "default": {
+          "kinds": [],
+          "rows": 0,
+          "layout": "auto"
+        },
+        "x-ui": {},
+        "type": "object",
+        "properties": {
+          "kinds": {
+            "title": "Kinds",
+            "description": "Empty: all. earthquake, tsunami, weather, other (a tile of earthquakes only: \"earthquake\").",
+            "default": [],
+            "x-ui": {
+              "label": {
+                "en": "Kinds",
+                "es": "Tipos",
+                "de": "Arten",
+                "zh-Hant": "類型",
+                "zh-Hans": "类型",
+                "ja": "種類"
+              },
+              "help": {
+                "en": "Empty: all. earthquake, tsunami, weather, other (a tile of earthquakes only: \"earthquake\").",
+                "es": "Vacío: todos. earthquake, tsunami, weather, other (una tesela solo de terremotos: «earthquake»).",
+                "de": "Leer: alle. earthquake, tsunami, weather, other (eine Kachel nur für Erdbeben: „earthquake“).",
+                "zh-Hant": "留空：全部。earthquake、tsunami、weather、other（只顯示地震：「earthquake」）。",
+                "zh-Hans": "留空：全部。earthquake、tsunami、weather、other（只显示地震：“earthquake”）。",
+                "ja": "空欄：すべて。earthquake、tsunami、weather、other（地震だけのタイル：「earthquake」）。"
+              },
+              "widget": "filter",
+              "choices": {
+                "source": "hazards/alerts",
+                "list": "kinds"
+              }
+            },
+            "type": "array",
+            "items": {
+              "default": "",
+              "x-ui": {
+                "placeholder": "name, group/*, !old-*",
+                "choices": {
+                  "source": "hazards/alerts",
+                  "list": "kinds"
+                }
+              },
+              "type": "string"
+            },
+            "x-filter": true
+          },
+          "rows": {
+            "title": "Rows",
+            "description": "0 = as many as fit. A number shows that many, in rows of a readable size (fewer when the tile is too small for them); the rest are counted in \"+N more\".",
+            "default": 0,
+            "x-ui": {
+              "label": {
+                "en": "Rows",
+                "es": "Filas",
+                "de": "Zeilen",
+                "zh-Hant": "列數",
+                "zh-Hans": "行数",
+                "ja": "行数"
+              },
+              "help": {
+                "en": "0 = as many as fit. A number shows that many, in rows of a readable size (fewer when the tile is too small for them); the rest are counted in \"+N more\".",
+                "es": "0 = las que quepan. Con un número se ven esas, en filas de un tamaño legible (menos si la tesela no da para ellas); el resto se cuenta en «+N más».",
+                "de": "0 = so viele, wie passen. Eine Zahl zeigt so viele, in Zeilen lesbarer Größe (weniger, wenn die Kachel dafür zu klein ist); der Rest wird als „+N weitere“ gezählt.",
+                "zh-Hant": "0 = 盡量放滿。填數字則顯示該數量，並以易讀的大小排列（方格太小時會減少）；其餘的計入「還有 N 個」。",
+                "zh-Hans": "0 = 尽量放满。填数字则显示该数量，并以易读的大小排列（格子太小时会减少）；其余的计入“还有 N 个”。",
+                "ja": "0：入るだけ。数字を入れるとその数を読みやすい大きさで表示し（小さいタイルでは少なめに）、残りは「+N」で数えます。"
+              }
+            },
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 30
+          },
+          "layout": {
+            "title": "Row layout",
+            "description": "Automatic: the widget picks by the tile's shape.",
+            "default": "auto",
+            "x-ui": {
+              "label": {
+                "en": "Row layout",
+                "es": "Formato de fila",
+                "de": "Zeilenlayout",
+                "zh-Hant": "列版面",
+                "zh-Hans": "行布局",
+                "ja": "行のレイアウト"
+              },
+              "help": {
+                "en": "Automatic: the widget picks by the tile's shape.",
+                "es": "Automático: el widget elige según la forma de la tesela.",
+                "de": "Automatisch: Das Widget wählt nach der Form der Kachel.",
+                "zh-Hant": "自動：小工具依方格形狀選擇。",
+                "zh-Hans": "自动：小组件根据格子形状选择。",
+                "ja": "自動：タイルの形に合わせて選びます。"
+              },
+              "labels": {
+                "auto": {
+                  "en": "Automatic",
+                  "es": "Automático",
+                  "de": "Automatisch",
+                  "zh-Hant": "自動",
+                  "zh-Hans": "自动",
+                  "ja": "自動"
+                },
+                "one-line": {
+                  "en": "One line",
+                  "es": "Una línea",
+                  "de": "Eine Zeile",
+                  "zh-Hant": "單行",
+                  "zh-Hans": "单行",
+                  "ja": "1行"
+                },
+                "detailed": {
+                  "en": "Detailed",
+                  "es": "Detallado",
+                  "de": "Ausführlich",
+                  "zh-Hant": "詳細",
+                  "zh-Hans": "详细",
+                  "ja": "詳細"
+                }
+              }
+            },
+            "type": "string",
+            "enum": [
+              "auto",
+              "one-line",
+              "detailed"
+            ]
+          }
+        }
+      },
+      "screenshot": "docs/latest.png",
+      "animated": false,
+      "urgent": true
+    }
+  ],
+  "sources": [
+    {
+      "type": "hazards/alerts",
+      "name": {
+        "en": "Official warnings",
+        "es": "Avisos oficiales",
+        "de": "Amtliche Warnungen",
+        "zh-Hant": "官方警特報",
+        "zh-Hans": "官方预警",
+        "ja": "公式の警報"
+      },
+      "description": {
+        "en": "Official warnings published by NWS, tsunami.gov, CWA (via NCDR), AEMET, Meteoalarm and GDACS, filtered to your place. Informational: they may arrive minutes late and do not replace official alerts (your phone, radio and TV).",
+        "es": "Avisos oficiales publicados por NWS, tsunami.gov, la CWA (vía NCDR), AEMET, Meteoalarm y GDACS, filtrados para tu sitio. Informativo: pueden llegar minutos después y no sustituyen a los avisos oficiales (ES-Alert, el móvil, radio y TV).",
+        "de": "Amtliche Warnungen von NWS, tsunami.gov, CWA (über NCDR), AEMET, Meteoalarm und GDACS, gefiltert für deinen Ort. Zur Information: Sie können Minuten später ankommen und ersetzen keine amtlichen Warnungen (Handy, Radio, Fernsehen).",
+        "zh-Hant": "NWS、tsunami.gov、中央氣象署（經民生示警）、AEMET、Meteoalarm 與 GDACS 發布的官方警特報，依你的地點篩選。僅供參考：可能晚幾分鐘才到，不能取代官方警報（手機、廣播與電視）。",
+        "zh-Hans": "NWS、tsunami.gov、台湾气象署（经 NCDR）、AEMET、Meteoalarm 与 GDACS 发布的官方预警，按你的地点筛选。仅供参考：可能晚几分钟才到，不能替代官方预警（手机、广播与电视）。",
+        "ja": "NWS、tsunami.gov、CWA（NCDR経由）、AEMET、Meteoalarm、GDACS が発表した公式の警報を、あなたの場所で絞り込みます。参考情報：数分遅れることがあり、公式の警報（携帯電話・ラジオ・テレビ）の代わりにはなりません。"
+      },
+      "polled": false,
+      "options": {
+        "default": {
+          "feeds": [],
+          "customFeeds": [],
+          "kinds": [
+            "earthquake",
+            "tsunami",
+            "weather"
+          ],
+          "events": [],
+          "zones": [],
+          "marginKm": 0,
+          "radiusKm": 300,
+          "minMagnitude": 4,
+          "maxQuakeLevel": "warn",
+          "maxWeatherLevel": "warn",
+          "includeTests": false,
+          "staleMs": 900000,
+          "latitude": 0,
+          "longitude": 0,
+          "placeName": ""
+        },
+        "x-ui": {},
+        "type": "object",
+        "properties": {
+          "feeds": {
+            "title": "Feeds",
+            "description": "Empty: the ones for your place (US: NWS and tsunami.gov; Taiwan: NCDR; Spain: AEMET; elsewhere in Europe: Meteoalarm; everywhere: GDACS). Names or patterns, comma-separated; \"!gdacs\" leaves one out. \"test\" runs a drill once.",
+            "default": [],
+            "x-ui": {
+              "label": {
+                "en": "Feeds",
+                "es": "Fuentes",
+                "de": "Feeds",
+                "zh-Hant": "資料來源",
+                "zh-Hans": "数据源",
+                "ja": "フィード"
+              },
+              "help": {
+                "en": "Empty: the ones for your place (US: NWS and tsunami.gov; Taiwan: NCDR; Spain: AEMET; elsewhere in Europe: Meteoalarm; everywhere: GDACS). Names or patterns, comma-separated; \"!gdacs\" leaves one out. \"test\" runs a drill once.",
+                "es": "Vacío: las de tu sitio (EE. UU.: NWS y tsunami.gov; Taiwán: NCDR; España: AEMET; resto de Europa: Meteoalarm; todo el mundo: GDACS). Nombres o patrones separados por comas; «!gdacs» quita una. «test» hace un simulacro una vez.",
+                "de": "Leer: die für deinen Ort (USA: NWS und tsunami.gov; Taiwan: NCDR; Spanien: AEMET; übriges Europa: Meteoalarm; überall: GDACS). Namen oder Muster, durch Kommas getrennt; „!gdacs“ lässt einen weg. „test“ startet einmal eine Probe.",
+                "zh-Hant": "留空：依你的地點選擇（美國：NWS 與 tsunami.gov；臺灣：民生示警；西班牙：AEMET；歐洲其他地區：Meteoalarm；全球：GDACS）。名稱或模式以逗號分隔；「!gdacs」可排除一個。「test」執行一次演練。",
+                "zh-Hans": "留空：按你的地点选择（美国：NWS 与 tsunami.gov；台湾：民生示警；西班牙：AEMET；欧洲其他地区：Meteoalarm；全球：GDACS）。名称或模式用逗号分隔；“!gdacs”可排除一个。“test”执行一次演练。",
+                "ja": "空欄：場所に合わせて選びます（米国：NWS と tsunami.gov、台湾：NCDR、スペイン：AEMET、その他の欧州：Meteoalarm、全世界：GDACS）。名前やパターンをカンマ区切りで。「!gdacs」で除外。「test」で訓練を1回。"
+              },
+              "widget": "filter",
+              "choices": {
+                "source": "hazards/alerts",
+                "list": "feeds"
+              }
+            },
+            "type": "array",
+            "items": {
+              "default": "",
+              "x-ui": {
+                "placeholder": "name, group/*, !old-*",
+                "choices": {
+                  "source": "hazards/alerts",
+                  "list": "feeds"
+                }
+              },
+              "type": "string"
+            },
+            "x-filter": true
+          },
+          "customFeeds": {
+            "title": "Your own CAP feeds",
+            "description": "Atom, RSS or a single CAP message of any alerting authority (the WMO register lists them: alertingauthority.wmo.int). A file:// path reads a CAP file of your own, for a drill. Read every 2 min.",
+            "default": [],
+            "x-ui": {
+              "label": {
+                "en": "Your own CAP feeds",
+                "es": "Tus feeds CAP",
+                "de": "Eigene CAP-Feeds",
+                "zh-Hant": "自訂 CAP 來源",
+                "zh-Hans": "自定义 CAP 源",
+                "ja": "独自の CAP フィード"
+              },
+              "help": {
+                "en": "Atom, RSS or a single CAP message of any alerting authority (the WMO register lists them: alertingauthority.wmo.int). A file:// path reads a CAP file of your own, for a drill. Read every 2 min.",
+                "es": "Atom, RSS o un mensaje CAP suelto de cualquier autoridad de avisos (el registro de la OMM las lista: alertingauthority.wmo.int). Una ruta file:// lee un CAP tuyo, para un simulacro. Se lee cada 2 min.",
+                "de": "Atom, RSS oder eine einzelne CAP-Nachricht einer Warnbehörde (das WMO-Register listet sie: alertingauthority.wmo.int). Ein file://-Pfad liest eine eigene CAP-Datei, für eine Probe. Alle 2 min gelesen.",
+                "zh-Hant": "任何警報機關的 Atom、RSS 或單一 CAP 訊息（WMO 名錄：alertingauthority.wmo.int）。file:// 路徑可讀取你自己的 CAP 檔，用於演練。每 2 分鐘讀取一次。",
+                "zh-Hans": "任何预警机构的 Atom、RSS 或单条 CAP 消息（WMO 名录：alertingauthority.wmo.int）。file:// 路径可读取你自己的 CAP 文件，用于演练。每 2 分钟读取一次。",
+                "ja": "警報機関の Atom・RSS・CAP メッセージ（WMO の登録簿：alertingauthority.wmo.int）。file:// で自分の CAP ファイルを読み込み訓練に使えます。2分ごとに読み込み。"
+              }
+            },
+            "type": "array",
+            "items": {
+              "default": "",
+              "x-ui": {
+                "placeholder": "https://…/cap.xml",
+                "format": "url"
+              },
+              "x-risk": [
+                "network",
+                "path"
+              ],
+              "type": "string"
+            },
+            "maxItems": 10
+          },
+          "kinds": {
+            "title": "Kinds",
+            "description": "earthquake, tsunami, weather, other.",
+            "default": [
+              "earthquake",
+              "tsunami",
+              "weather"
+            ],
+            "x-ui": {
+              "label": {
+                "en": "Kinds",
+                "es": "Tipos",
+                "de": "Arten",
+                "zh-Hant": "類型",
+                "zh-Hans": "类型",
+                "ja": "種類"
+              },
+              "help": {
+                "en": "earthquake, tsunami, weather, other.",
+                "es": "earthquake (terremoto), tsunami, weather (tiempo), other (otros).",
+                "de": "earthquake (Erdbeben), tsunami, weather (Wetter), other (andere).",
+                "zh-Hant": "earthquake（地震）、tsunami（海嘯）、weather（天氣）、other（其他）。",
+                "zh-Hans": "earthquake（地震）、tsunami（海啸）、weather（天气）、other（其他）。",
+                "ja": "earthquake（地震）、tsunami（津波）、weather（気象）、other（その他）。"
+              },
+              "widget": "filter",
+              "choices": {
+                "source": "hazards/alerts",
+                "list": "kinds"
+              }
+            },
+            "type": "array",
+            "items": {
+              "default": "",
+              "x-ui": {
+                "placeholder": "name, group/*, !old-*",
+                "choices": {
+                  "source": "hazards/alerts",
+                  "list": "kinds"
+                }
+              },
+              "type": "string"
+            },
+            "x-filter": true
+          },
+          "events": {
+            "title": "Events",
+            "description": "Empty: all. By the authority's event name: \"*Wind*\", \"!*Frost*\".",
+            "default": [],
+            "x-ui": {
+              "label": {
+                "en": "Events",
+                "es": "Sucesos",
+                "de": "Ereignisse",
+                "zh-Hant": "事件",
+                "zh-Hans": "事件",
+                "ja": "事象"
+              },
+              "help": {
+                "en": "Empty: all. By the authority's event name: \"*Wind*\", \"!*Frost*\".",
+                "es": "Vacío: todos. Por el nombre del suceso de la autoridad: «*viento*», «!*helada*».",
+                "de": "Leer: alle. Nach dem Ereignisnamen der Behörde: „*Wind*“, „!*Frost*“.",
+                "zh-Hant": "留空：全部。依機關的事件名稱：「*強風*」、「!*低溫*」。",
+                "zh-Hans": "留空：全部。按机构的事件名称：“*大风*”、“!*低温*”。",
+                "ja": "空欄：すべて。機関の事象名で：「*Wind*」「!*Frost*」。"
+              },
+              "advanced": true,
+              "widget": "filter",
+              "choices": {
+                "source": "hazards/alerts",
+                "list": "events"
+              }
+            },
+            "type": "array",
+            "items": {
+              "default": "",
+              "x-ui": {
+                "placeholder": "name, group/*, !old-*",
+                "choices": {
+                  "source": "hazards/alerts",
+                  "list": "events"
+                }
+              },
+              "type": "string"
+            },
+            "x-filter": true
+          },
+          "zones": {
+            "title": "Your zones",
+            "description": "For warnings that come with a zone code and no shape (Meteoalarm, US tsunami zones): codes or names as the feeds write them (\"ES239\", \"CAZ043\", \"桃園市*\"). A warning with a shape is placed by it.",
+            "default": [],
+            "x-ui": {
+              "label": {
+                "en": "Your zones",
+                "es": "Tus zonas",
+                "de": "Deine Gebiete",
+                "zh-Hant": "你的地區",
+                "zh-Hans": "你的地区",
+                "ja": "あなたの地域"
+              },
+              "help": {
+                "en": "For warnings that come with a zone code and no shape (Meteoalarm, US tsunami zones): codes or names as the feeds write them (\"ES239\", \"CAZ043\", \"桃園市*\"). A warning with a shape is placed by it.",
+                "es": "Para avisos que llegan con un código de zona y sin forma (Meteoalarm, zonas de tsunami de EE. UU.): códigos o nombres como los escriben los feeds («ES239», «CAZ043», «桃園市*»). Un aviso con forma se sitúa por ella.",
+                "de": "Für Warnungen mit Gebietscode und ohne Umriss (Meteoalarm, US-Tsunamizonen): Codes oder Namen wie in den Feeds („DE…“, „CAZ043“, „桃園市*“). Eine Warnung mit Umriss wird danach verortet.",
+                "zh-Hant": "適用於只有地區代碼、沒有範圍的警報（Meteoalarm、美國海嘯區）：依來源寫法填代碼或名稱（「CAZ043」、「桃園市*」）。有範圍的警報依範圍判斷。",
+                "zh-Hans": "适用于只有地区代码、没有范围的预警（Meteoalarm、美国海啸区）：按来源写法填代码或名称（“CAZ043”、“桃園市*”）。有范围的预警按范围判断。",
+                "ja": "ゾーンコードだけで形のない警報（Meteoalarm、米国の津波ゾーン）用：フィードの表記どおりのコードや名前（「CAZ043」「桃園市*」）。形のある警報はその形で判定します。"
+              },
+              "widget": "filter",
+              "choices": {
+                "source": "hazards/alerts",
+                "list": "zones"
+              }
+            },
+            "type": "array",
+            "items": {
+              "default": "",
+              "x-ui": {
+                "placeholder": "name, group/*, !old-*",
+                "choices": {
+                  "source": "hazards/alerts",
+                  "list": "zones"
+                }
+              },
+              "type": "string"
+            },
+            "x-filter": true
+          },
+          "marginKm": {
+            "title": "Margin",
+            "description": "Also warnings for areas this close to your place (if you live at the edge of one).",
+            "default": 0,
+            "x-ui": {
+              "label": {
+                "en": "Margin",
+                "es": "Margen",
+                "de": "Rand",
+                "zh-Hant": "邊界範圍",
+                "zh-Hans": "边界范围",
+                "ja": "余裕"
+              },
+              "help": {
+                "en": "Also warnings for areas this close to your place (if you live at the edge of one).",
+                "es": "También los avisos de zonas a esta distancia de tu sitio (si vives en el borde de una).",
+                "de": "Auch Warnungen für Gebiete so nah an deinem Ort (wenn du am Rand eines Gebiets wohnst).",
+                "zh-Hant": "也包含距離你的地點這麼近的地區警報（住在邊界時）。",
+                "zh-Hans": "也包括距离你的地点这么近的地区预警（住在边界时）。",
+                "ja": "この距離以内の地域の警報も含めます（境界付近にお住まいの場合）。"
+              },
+              "unit": "km"
+            },
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "radiusKm": {
+            "title": "Earthquakes within",
+            "description": "Earthquake reports nearer than this, and at least the magnitude below, take the screen.",
+            "default": 300,
+            "x-ui": {
+              "label": {
+                "en": "Earthquakes within",
+                "es": "Terremotos a menos de",
+                "de": "Erdbeben im Umkreis von",
+                "zh-Hant": "地震範圍",
+                "zh-Hans": "地震范围",
+                "ja": "地震の範囲"
+              },
+              "help": {
+                "en": "Earthquake reports nearer than this, and at least the magnitude below, take the screen.",
+                "es": "Los informes de terremoto a menos de esta distancia y con al menos la magnitud de abajo salen a pantalla completa.",
+                "de": "Erdbebenberichte näher als dies und mindestens mit der Magnitude unten erscheinen bildschirmfüllend.",
+                "zh-Hant": "比這個距離近、且達到下方規模的地震報告會全螢幕顯示。",
+                "zh-Hans": "比这个距离近、且达到下方震级的地震报告会全屏显示。",
+                "ja": "この距離より近く、下の規模以上の地震情報が全画面に出ます。"
+              },
+              "unit": "km"
+            },
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 3000
+          },
+          "minMagnitude": {
+            "title": "Least magnitude",
+            "default": 4,
+            "x-ui": {
+              "label": {
+                "en": "Least magnitude",
+                "es": "Magnitud mínima",
+                "de": "Mindestmagnitude",
+                "zh-Hant": "最小規模",
+                "zh-Hans": "最小震级",
+                "ja": "最小マグニチュード"
+              },
+              "step": 0.1
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "maxQuakeLevel": {
+            "title": "Earthquake reports at most",
+            "description": "A report says what already happened; critical would wake the panel in quiet hours.",
+            "default": "warn",
+            "x-ui": {
+              "label": {
+                "en": "Earthquake reports at most",
+                "es": "Informes de terremoto como mucho",
+                "de": "Erdbebenberichte höchstens",
+                "zh-Hant": "地震報告最高等級",
+                "zh-Hans": "地震报告最高级别",
+                "ja": "地震情報の最高レベル"
+              },
+              "help": {
+                "en": "A report says what already happened; critical would wake the panel in quiet hours.",
+                "es": "Un informe cuenta lo que ya ha pasado; crítico despertaría el panel en las horas de silencio.",
+                "de": "Ein Bericht sagt, was schon geschehen ist; kritisch würde das Panel in den Ruhezeiten wecken.",
+                "zh-Hant": "報告說的是已經發生的事；緊急等級會在安靜時段喚醒面板。",
+                "zh-Hans": "报告说的是已经发生的事；紧急级别会在安静时段唤醒面板。",
+                "ja": "情報はすでに起きたことです。緊急にすると静かな時間帯にもパネルが点きます。"
+              },
+              "labels": {
+                "info": {
+                  "en": "Info (blue)",
+                  "es": "Información (azul)",
+                  "de": "Info (blau)",
+                  "zh-Hant": "資訊（藍）",
+                  "zh-Hans": "信息（蓝）",
+                  "ja": "情報（青）"
+                },
+                "warn": {
+                  "en": "Warning (amber)",
+                  "es": "Aviso (ámbar)",
+                  "de": "Warnung (gelb)",
+                  "zh-Hant": "警告（琥珀）",
+                  "zh-Hans": "警告（琥珀）",
+                  "ja": "警告（黄）"
+                },
+                "critical": {
+                  "en": "Critical (red)",
+                  "es": "Crítico (rojo)",
+                  "de": "Kritisch (rot)",
+                  "zh-Hant": "緊急（紅）",
+                  "zh-Hans": "紧急（红）",
+                  "ja": "緊急（赤）"
+                }
+              }
+            },
+            "type": "string",
+            "enum": [
+              "info",
+              "warn",
+              "critical"
+            ]
+          },
+          "maxWeatherLevel": {
+            "title": "Red and severe weather warnings",
+            "description": "Critical makes a red warning (AEMET, Meteoalarm, CWA) or an imminent Severe one cross quiet hours.",
+            "default": "warn",
+            "x-ui": {
+              "label": {
+                "en": "Red and severe weather warnings",
+                "es": "Avisos rojos y graves de tiempo",
+                "de": "Rote und schwere Wetterwarnungen",
+                "zh-Hant": "紅色及嚴重天氣警報",
+                "zh-Hans": "红色及严重天气预警",
+                "ja": "赤色・重大な気象警報"
+              },
+              "help": {
+                "en": "Critical makes a red warning (AEMET, Meteoalarm, CWA) or an imminent Severe one cross quiet hours.",
+                "es": "Crítico hace que un aviso rojo (AEMET, Meteoalarm, CWA) o uno grave inminente cruce las horas de silencio.",
+                "de": "Kritisch lässt eine rote Warnung (AEMET, Meteoalarm, CWA) oder eine unmittelbare schwere die Ruhezeiten durchbrechen.",
+                "zh-Hant": "選緊急時，紅色警報（AEMET、Meteoalarm、氣象署）或即將發生的嚴重警報會穿過安靜時段。",
+                "zh-Hans": "选紧急时，红色预警（AEMET、Meteoalarm、气象署）或即将发生的严重预警会穿过安静时段。",
+                "ja": "緊急にすると、赤色警報（AEMET、Meteoalarm、CWA）や差し迫った重大警報が静かな時間帯にも出ます。"
+              },
+              "labels": {
+                "info": {
+                  "en": "Info (blue)",
+                  "es": "Información (azul)",
+                  "de": "Info (blau)",
+                  "zh-Hant": "資訊（藍）",
+                  "zh-Hans": "信息（蓝）",
+                  "ja": "情報（青）"
+                },
+                "warn": {
+                  "en": "Warning (amber)",
+                  "es": "Aviso (ámbar)",
+                  "de": "Warnung (gelb)",
+                  "zh-Hant": "警告（琥珀）",
+                  "zh-Hans": "警告（琥珀）",
+                  "ja": "警告（黄）"
+                },
+                "critical": {
+                  "en": "Critical (red)",
+                  "es": "Crítico (rojo)",
+                  "de": "Kritisch (rot)",
+                  "zh-Hant": "緊急（紅）",
+                  "zh-Hans": "紧急（红）",
+                  "ja": "緊急（赤）"
+                }
+              }
+            },
+            "type": "string",
+            "enum": [
+              "info",
+              "warn",
+              "critical"
+            ]
+          },
+          "includeTests": {
+            "title": "Include tests and exercises",
+            "description": "Shown as info with TEST or EXERCISE in front, never as real.",
+            "default": false,
+            "x-ui": {
+              "label": {
+                "en": "Include tests and exercises",
+                "es": "Incluir pruebas y simulacros",
+                "de": "Tests und Übungen einbeziehen",
+                "zh-Hant": "包含測試與演習",
+                "zh-Hans": "包含测试与演习",
+                "ja": "テストと訓練を含める"
+              },
+              "help": {
+                "en": "Shown as info with TEST or EXERCISE in front, never as real.",
+                "es": "Salen como información con PRUEBA o SIMULACRO delante, nunca como reales.",
+                "de": "Als Info mit TEST oder ÜBUNG davor, nie als echt.",
+                "zh-Hant": "以資訊等級顯示，前面加上「測試」或「演習」，絕不當作真實警報。",
+                "zh-Hans": "以信息级别显示，前面加上“测试”或“演习”，绝不当作真实预警。",
+                "ja": "情報として先頭に「テスト」「訓練」を付けて表示し、本物としては扱いません。"
+              }
+            },
+            "type": "boolean"
+          },
+          "staleMs": {
+            "title": "No data after",
+            "description": "A feed that hasn't answered for this long is shown as down in the tile (never full-screen).",
+            "default": 900000,
+            "x-ui": {
+              "label": {
+                "en": "No data after",
+                "es": "Sin datos pasado",
+                "de": "Keine Daten nach",
+                "zh-Hant": "無資料時間",
+                "zh-Hans": "无数据时间",
+                "ja": "データなしと見なす時間"
+              },
+              "help": {
+                "en": "A feed that hasn't answered for this long is shown as down in the tile (never full-screen).",
+                "es": "Un feed que no responde en este tiempo sale como caído en la tesela (nunca a pantalla completa).",
+                "de": "Ein Feed, der so lange nicht antwortet, erscheint in der Kachel als ausgefallen (nie bildschirmfüllend).",
+                "zh-Hant": "超過這段時間沒有回應的來源，會在圖塊中標示為中斷（不會全螢幕）。",
+                "zh-Hans": "超过这段时间没有响应的源，会在图块中标示为中断（不会全屏）。",
+                "ja": "この時間応答のないフィードはタイルで停止中と表示します（全画面にはしません）。"
+              },
+              "unit": "ms"
+            },
+            "type": "integer",
+            "minimum": 60000
+          },
+          "latitude": {
+            "title": "Latitude",
+            "description": "Leave latitude and longitude at 0 to use the place in Settings.",
+            "default": 0,
+            "x-ui": {
+              "label": {
+                "en": "Latitude",
+                "es": "Latitud",
+                "de": "Breitengrad",
+                "zh-Hant": "緯度",
+                "zh-Hans": "纬度",
+                "ja": "緯度"
+              },
+              "help": {
+                "en": "Leave latitude and longitude at 0 to use the place in Settings.",
+                "es": "Con latitud y longitud a 0 se usa el lugar de los ajustes.",
+                "de": "Breiten- und Längengrad auf 0 lassen, um den Ort aus den Einstellungen zu verwenden.",
+                "zh-Hant": "緯度和經度保持 0 即使用設定中的地點。",
+                "zh-Hans": "纬度和经度保持为 0 时使用设置中的地点。",
+                "ja": "緯度と経度を 0 のままにすると、設定の場所を使います。"
+              },
+              "advanced": true,
+              "unit": "°",
+              "step": 0.0001
+            },
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "longitude": {
+            "title": "Longitude",
+            "default": 0,
+            "x-ui": {
+              "label": {
+                "en": "Longitude",
+                "es": "Longitud",
+                "de": "Längengrad",
+                "zh-Hant": "經度",
+                "zh-Hans": "经度",
+                "ja": "経度"
+              },
+              "advanced": true,
+              "unit": "°",
+              "step": 0.0001
+            },
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "placeName": {
+            "title": "Place name",
+            "description": "Empty: the one in Settings.",
+            "default": "",
+            "x-ui": {
+              "label": {
+                "en": "Place name",
+                "es": "Nombre del lugar",
+                "de": "Ortsname",
+                "zh-Hant": "地點名稱",
+                "zh-Hans": "地点名称",
+                "ja": "地名"
+              },
+              "help": {
+                "en": "Empty: the one in Settings.",
+                "es": "Vacío: el de los ajustes.",
+                "de": "Leer: der aus den Einstellungen.",
+                "zh-Hant": "留空：使用設定中的地點。",
+                "zh-Hans": "留空：使用设置中的地点。",
+                "ja": "空欄：設定の場所。"
+              },
+              "advanced": true,
+              "placeholder": "Madrid"
+            },
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "interludes": [],
+  "templates": []
+}
