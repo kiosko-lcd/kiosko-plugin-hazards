@@ -4,7 +4,7 @@
   "description": "Official warnings (tsunamis, severe weather) and earthquake reports from CAP feeds (NWS, tsunami.gov, CWA via NCDR, AEMET, Meteoalarm, GDACS) as Kiosko full-screen alerts. Informational, not a substitute for official alerts.",
   "type": "module",
   "license": "MIT",
-  "author": "Loksly",
+  "author": "Loksly <info@kioskolcd.dev> (https://kioskolcd.dev)",
   "keywords": [
     "kiosko",
     "kiosko-plugin",
