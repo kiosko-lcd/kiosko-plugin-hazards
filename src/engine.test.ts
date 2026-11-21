@@ -72,7 +72,7 @@ test('NCDR: the index, then each .cap one at a time, at least the host\'s gap ap
   // Taoyuan: in the wind warning, not in the cold one (Hsinchu, Miaoli).
   assert.deepEqual(d.items.map((it) => pick(it.title, 'zh-Hant')), ['陸上強風特報(黃色燈號)']);
   assert.equal(d.items[0]!.level, 'info', 'yellow');
-  assert.equal(pick(d.items[0]!.source, 'zh-Hant'), '民生示警');
+  assert.equal(pick(d.items[0]!.source, 'zh-Hant'), '中央氣象署', 'the agency that issued it, not the one passing it on');
   assert.ok(d.zones.some((z) => z.value === '6800500'), 'its town codes are offered as zones');
   // A second read fetches only the index: the .cap files are kept.
   f.calls.length = 0;

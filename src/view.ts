@@ -123,7 +123,9 @@ export function buildItems(b: BuildInput): { items: Item[]; unplaced: number } {
   const items: Item[] = [];
   let unplaced = 0;
   const seen = new Set<string>();
-  const chains = [...b.ledger.chains.values()].sort((x, y) => y.current.sent - x.current.sent);
+  // Newest first; the authority's own feed before an aggregator that passes the same warning on.
+  const aggregator = (feed: string) => (/^(meteoalarm-|gdacs)/.test(feed) ? 1 : 0);
+  const chains = [...b.ledger.chains.values()].sort((x, y) => aggregator(x.feed) - aggregator(y.feed) || y.current.sent - x.current.sent);
   for (const c of chains) {
     const e = c.current;
     if (!matchFilter(e.kind, b.options.kinds)) continue;
@@ -158,7 +160,8 @@ function itemOf(b: BuildInput, c: Chain, e: HazardEvent, level: AlertLevel | nul
     kind: e.kind,
     level: over ? null : level,
     maxLevel: max,
-    source: b.sourceOf(c.feed),
+    // NCDR passes on the warnings of many agencies: name the one that issued it (中央氣象署).
+    source: c.feed === 'ncdr' && e.senderName ? e.senderName : b.sourceOf(c.feed),
     title,
     sent: e.sent,
     expires,
@@ -167,14 +170,14 @@ function itemOf(b: BuildInput, c: Chain, e: HazardEvent, level: AlertLevel | nul
   if (mark) it.mark = mark;
   if (e.kind === 'earthquake' && distance !== undefined && e.epicenter && b.query.point) it.area = join([awayText(distance, bearing(b.query.point, e.epicenter)), e.place]);
   else if (area) it.area = area;
-  else if (e.kind === 'tsunami' && e.place) it.place = e.place;
   if (e.instruction) it.instruction = e.instruction;
   if (e.onset !== undefined) it.onset = e.onset;
   if (c.ended !== undefined) it.ended = c.ended;
   if (c.cancelled) it.cancelled = true;
   if (e.magnitude !== undefined) it.magnitude = e.magnitude;
   if (e.eventTime !== undefined) it.eventTime = e.eventTime;
-  if (e.place && !it.place) it.place = e.place;
+  // Where the earthquake was, unless the title already says it (a "no threat" bulletin names only that).
+  if (e.place && !contains(title, e.place)) it.place = e.place;
   if (e.tsunami) it.tsunami = e.tsunami;
   return it;
 }

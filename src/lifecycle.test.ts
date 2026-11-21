@@ -131,11 +131,27 @@ test('tests and exercises never as real: left out, or info with TEST / EXERCISE 
   assert.deepEqual(shown.map((a) => [a.level, pick(a.title, 'es')]).sort(), [['info', 'PRUEBA · Wind warning for the square'], ['info', 'SIMULACRO · Wind warning for the square']]);
 });
 
-test('the same warning through two feeds (AEMET and Meteoalarm) is listed once', () => {
+test('the same warning through two feeds (AEMET and Meteoalarm) is listed once, as the authority\'s', () => {
   const l = new Ledger();
+  l.ingest('meteoalarm-spain', [msg({ feed: 'meteoalarm-spain', sender: 'other', sent: T0 + MIN })], true, T0);
   l.ingest('aemet', [msg({ feed: 'aemet' })], true, T0);
-  l.ingest('meteoalarm-spain', [msg({ feed: 'meteoalarm-spain', sender: 'other' })], true, T0);
-  assert.equal(view(l, T0).items.length, 1);
+  const { items } = view(l, T0);
+  assert.equal(items.length, 1);
+  assert.equal(items[0]!.feed, 'aemet');
+});
+
+test('only what the user could see is saved; the rest is read again after a restart (a new place still finds it)', () => {
+  const l = new Ledger();
+  const mine = msg();
+  const elsewhere = msg({ areas: [{ desc: 'Elsewhere', polygons: [[[10, 10], [10, 11], [11, 11], [10, 10]]], circles: [], geocodes: {} }] });
+  l.ingest('cap:x', [mine, elsewhere], true, T0);
+  const keep = new Set(view(l, T0).items.map((it) => it.root));
+  const saved = l.toJSON(keep);
+  assert.deepEqual(saved.chains.map((c) => c.root), [mine.key]);
+  assert.deepEqual(saved.seen.map(([k]) => k), [mine.key]);
+  const again = new Ledger(saved);
+  assert.equal(again.ingest('cap:x', [mine, elsewhere], true, T0 + MIN), true, 'the other one comes back as new');
+  assert.equal(again.chains.size, 2);
 });
 
 test('warnings elsewhere are left out; those that can\'t be placed are only counted', () => {

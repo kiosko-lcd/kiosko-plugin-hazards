@@ -52,14 +52,15 @@ const ends = (e: HazardEvent) => e.msgType === 'Cancel' || /^allclear$/i.test(e.
 
 export interface LedgerState {
   chains: Chain[];
-  seen: [string, number][];
+  /** Message key, when it was seen, the chain it went to (`''`: none). */
+  seen: [string, number, string][];
 }
 
 export class Ledger {
   readonly chains = new Map<string, Chain>();
   /** Message key → the chain it belongs to. */
   private readonly owner = new Map<string, string>();
-  private readonly seen = new Map<string, number>();
+  private readonly seen = new Map<string, { at: number; root: string }>();
 
   constructor(state?: LedgerState) {
     if (!state) return;
@@ -68,7 +69,7 @@ export class Ledger {
       this.chains.set(c.root, c);
       this.owner.set(c.current.key, c.root);
     }
-    for (const [k, t] of state.seen ?? []) this.seen.set(k, t);
+    for (const [k, at, root] of state.seen ?? []) this.seen.set(k, { at, root: root ?? '' });
   }
 
   /**
@@ -88,9 +89,11 @@ export class Ledger {
         continue;
       }
       if (this.seen.has(e.key)) continue;
-      this.seen.set(e.key, now);
+      const mark = { at: now, root: '' };
+      this.seen.set(e.key, mark);
       // The first message of a chain that was rooted at it from a later one's references: old news.
       if (this.chains.has(e.key)) {
+        mark.root = e.key;
         present.add(e.key);
         continue;
       }
@@ -106,6 +109,7 @@ export class Ledger {
       }
       const chain = root ? this.chains.get(root) : undefined;
       if (chain) {
+        mark.root = chain.root;
         if (e.sent < chain.current.sent) continue; // an older message seen late
         this.owner.delete(chain.current.key);
         chain.current = e;
@@ -131,6 +135,7 @@ export class Ledger {
       const c: Chain = { root: this.chains.has(id) ? e.key : id, feed, current: e, firstSeen: now, updated: now, missing: 0 };
       this.chains.set(c.root, c);
       this.owner.set(e.key, c.root);
+      mark.root = c.root;
       present.add(c.root);
     }
     if (active) {
@@ -166,7 +171,7 @@ export class Ledger {
         changed = true;
       }
     }
-    for (const [k, t] of this.seen) if (now - t > SEEN_MS) this.seen.delete(k);
+    for (const [k, s] of this.seen) if (now - s.at > SEEN_MS) this.seen.delete(k);
     return changed;
   }
 
@@ -178,7 +183,15 @@ export class Ledger {
     }
   }
 
-  toJSON(): LedgerState {
-    return { chains: [...this.chains.values()], seen: [...this.seen] };
+  /**
+   * What to save. `keep`: only these chains (the ones the user could see),
+   * and only their messages as seen: the rest (warnings elsewhere, hundreds
+   * of them in GDACS and Meteoalarm) are read again from their feeds after a
+   * restart, so a change of place or zones still finds them.
+   */
+  toJSON(keep?: ReadonlySet<string>): LedgerState {
+    const chains = [...this.chains.values()].filter((c) => !keep || keep.has(c.root));
+    const seen = [...this.seen].filter(([, s]) => !keep || keep.has(s.root)).map(([k, s]) => [k, s.at, s.root] as [string, number, string]);
+    return { chains, seen };
   }
 }

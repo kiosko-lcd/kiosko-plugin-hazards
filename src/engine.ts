@@ -62,6 +62,8 @@ interface FeedRun {
   preset: Preset;
   status: FeedStatus;
   failures: number;
+  /** Messages in its last read, to log when that changes. */
+  count?: number;
   timer?: ReturnType<typeof setTimeout>;
   /** CAP messages already fetched, by URL (their files never change). */
   caps: Map<string, HazardEvent[]>;
@@ -87,6 +89,8 @@ export class Engine {
   private lastSig = '';
   private readonly zoneChoices = new Map<string, Choice>();
   private readonly eventNames = new Set<string>();
+  /** Chains the tile lists (the ones worth saving). */
+  private listed = new Set<string>();
 
   constructor(init: EngineInit) {
     this.init = init;
@@ -104,6 +108,8 @@ export class Engine {
       }
       this.runs.set(preset.id, { preset, status: { id: preset.id, source: preset.source, since }, failures: 0, caps: new Map() });
     }
+    // Warnings of feeds no longer chosen go (the drill's, below, when it is taken out).
+    for (const c of [...this.ledger.chains.values()]) if (!this.runs.has(c.feed) && c.feed !== 'test') this.ledger.forgetFeed(c.feed);
   }
 
   get query(): AreaQuery {
@@ -167,7 +173,11 @@ export class Engine {
         const doc = parseDocument(await this.get(url, p.gapMs), p.id);
         events = doc.kind === 'cap' ? doc.events : await this.resolve(run, doc.entries);
       }
+      // Stopped while reading (options changed, Kiosko stopping): nothing to record.
+      if (this.abort.signal.aborted) return;
       for (const e of events) this.learn(e);
+      if (events.length !== run.count) this.init.log(`${p.id}: ${events.length} message${events.length === 1 ? '' : 's'}`);
+      run.count = events.length;
       const changed = this.ledger.ingest(p.id, events, p.mode === 'active', this.now());
       run.status.lastOk = this.now();
       delete run.status.lastError;
@@ -205,7 +215,7 @@ export class Engine {
             run.caps.set(url, evs);
             if (p.fetchCaps === 'aemet') this.learnAemetZone(e, evs);
           } catch (err) {
-            this.init.log(`${p.id}: ${url}: ${err instanceof Error ? err.message : String(err)}`);
+            if (!this.abort.signal.aborted) this.init.log(`${p.id}: ${url}: ${err instanceof Error ? err.message : String(err)}`);
           }
         }
         // AEMET: a zone just learnt may turn out to be elsewhere.
@@ -323,6 +333,9 @@ export class Engine {
       latestOnly: (feed) => (this.runs.get(feed)?.preset ?? presetById(feed))?.mode === 'latest',
       now,
     });
+    const listed = new Set(items.map((it) => it.root));
+    if ([...listed].some((r) => !this.listed.has(r)) || listed.size !== this.listed.size) this.scheduleSave();
+    this.listed = listed;
     const data: HazardsData = {
       items,
       feeds: [...this.runs.values()].filter((r) => r.preset.id !== 'test').map((r) => ({ ...r.status })),
@@ -355,7 +368,7 @@ export class Engine {
   }
 
   private save(): void {
-    const s: Saved = { ledger: this.ledger.toJSON(), ...(this.drillFor ? { drillFor: this.drillFor } : {}) };
+    const s: Saved = { ledger: this.ledger.toJSON(this.listed), ...(this.drillFor ? { drillFor: this.drillFor } : {}) };
     this.write('state.json', s);
   }
 

@@ -165,6 +165,17 @@ function paint(g: Graphics, ctx: Ctx): void {
   drawMore(g, ctx, plan, { indent: tx - box.x });
 }
 
+/** A clock time, with the weekday when it isn't today ("dom 03:00"). */
+function clock(ctx: Ctx, at: number): string {
+  const t = ctx.fmt.time(at);
+  if (new Date(at).toDateString() === new Date(ctx.now).toDateString()) return t;
+  try {
+    return `${new Intl.DateTimeFormat(ctx.locale, { weekday: 'short' }).format(new Date(at))} ${t}`;
+  } catch {
+    return t;
+  }
+}
+
 /** "Litoral sur de Valencia · until 22:00 · AEMET", "35 km SW · 12 min ago · GDACS". */
 function metaOf(ctx: Ctx, it: Item, on: boolean): string {
   const tr = ctx.t;
@@ -172,8 +183,8 @@ function metaOf(ctx: Ctx, it: Item, on: boolean): string {
   if (it.area) parts.push(tr(it.area));
   else if (it.place) parts.push(it.place);
   if (it.kind === 'earthquake' || it.kind === 'tsunami' || !on) parts.push(ctx.fmt.ago(it.eventTime ?? it.sent));
-  else if (it.onset !== undefined && it.onset > ctx.now) parts.push(fill(tr(TX.from), { time: ctx.fmt.time(it.onset) }));
-  else parts.push(fill(tr(TX.until), { time: ctx.fmt.time(it.expires) }));
+  else if (it.onset !== undefined && it.onset > ctx.now) parts.push(fill(tr(TX.from), { time: clock(ctx, it.onset) }));
+  else parts.push(fill(tr(TX.until), { time: clock(ctx, it.expires) }));
   parts.push(tr(it.source));
   return parts.filter(Boolean).join(' · ');
 }
